@@ -1,0 +1,32 @@
+<form action="/upload" method="post" enctype="multipart/form-data">
+     <p class="card-text">Choose a file to upload it to AWS S3</p>
+      
+        <script>
+        updateList = function() {
+   	 var input = document.getElementById('file');
+   	 var output = document.getElementById('fileList');
+   	 var children = "";
+    		for (var i = 0; i < input.files.length; ++i) {
+    	  	  children += '<li>' + input.files.item(i).name + '</li>';
+   					 }
+   	 output.innerHTML = '<ul>'+children+'</ul>';
+}
+        </script>  
+        
+        <input type="file" multiple
+     	  name="file" 
+         id="file" 
+  	 onchange="javascript:updateList()" />
+
+	<p>Selected files:</p>
+
+	<div id="fileList"></div>
+  
+   
+   <input type="submit" name="upload" value="Upload" class="btn btn-success">
+</form>
+
+{{msg}}
+{{filename}}
+{{f}}
+{{loc}}
